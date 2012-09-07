@@ -32,8 +32,8 @@ class JavascriptConfigurationNode(template.Node):
             var configuration = %s;
             window.getDjangoParam = function(key){
                 return configuration[key]
-            }
-        )();
+            };
+        })();
         """
         return js_code % simplejson.dumps(
                 DEFAULT_CONFIGURATION_BUILDER.get_configuration(context['request'])
