@@ -1,6 +1,7 @@
 import sys
 
 from javascript_settings import settings
+from copy import deepcopy
 
 
 class ConfigurationBuilder:
@@ -26,10 +27,11 @@ class ConfigurationBuilder:
         if self.configuration is None:
             self.configuration = self.fetch()
 
+        configuration = deepcopy(self.configuration)
         # Get configuration for current view
         if request and hasattr(request, 'javascript_settings'):
-            self.configuration.update(request.javascript_settings)
+            configuration.update(request.javascript_settings)
 
-        return self.configuration
+        return configuration
 
 DEFAULT_CONFIGURATION_BUILDER = ConfigurationBuilder()
