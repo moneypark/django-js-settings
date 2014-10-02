@@ -35,6 +35,10 @@ class JavascriptConfigurationNode(template.Node):
             };
         })();
         """
+
+	if 'request' not in context:
+            return ''
+
         return js_code % simplejson.dumps(
                 DEFAULT_CONFIGURATION_BUILDER.get_configuration(context['request'])
                 )
