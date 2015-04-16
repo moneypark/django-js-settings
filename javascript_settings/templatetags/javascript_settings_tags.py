@@ -1,5 +1,5 @@
+import json
 from django import template
-from django.utils import simplejson
 
 
 from javascript_settings.configuration_builder import DEFAULT_CONFIGURATION_BUILDER
@@ -39,7 +39,7 @@ class JavascriptConfigurationNode(template.Node):
 	if 'request' not in context:
             return ''
 
-        return js_code % simplejson.dumps(
+        return js_code % json.dumps(
                 DEFAULT_CONFIGURATION_BUILDER.get_configuration(context['request'])
                 )
 
