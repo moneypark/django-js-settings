@@ -27,3 +27,8 @@ pip-log.txt
 .mr.developer.cfg
 /.pydevproject
 /.project
+.idea
+
+# Virtual env
+venv/
+env/
