@@ -1,4 +1,7 @@
-class JavaScriptUserConfig(object):
+from django.utils.deprecation import MiddlewareMixin
+
+
+class JavaScriptUserConfig(MiddlewareMixin):
     """ 
         Adds abbility to add parameters to javascript_settings
         from view.
